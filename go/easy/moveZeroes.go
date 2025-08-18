@@ -7,9 +7,13 @@ import "fmt"
 
 // 反向思维, 寻找非0元素，并插入到数组中
 // [0,1,0,3,12]
+// 快慢指针，快指针遍历数组，慢指针记录非零元素的位置
+// 快指针遍历到非零元素，将非零元素插入到慢指针的位置，慢指针后移
+// 快指针遍历到零元素，慢指针不动
+// 快指针遍历完数组，慢指针后面的元素都设置为0
 func moveZeroes(nums []int) {
 	// 遍历数组，将非零元素插入到数组中
-	nonZeroIndex := 0
+	nonZeroIndex := 0 // 慢指针
 	for _, num := range nums {
 		fmt.Println("num", num)
 		if num != 0 {
